@@ -10,3 +10,15 @@ C:\Users\Luke\Google Drive\Code\Scouting\Scouting\obj\Debug\Scouting.exe
 C:\Users\Luke\Google Drive\Code\Scouting\Scouting\obj\Debug\Scouting.pdb
 C:\Users\Luke\Google Drive\Code\Scouting\Scouting\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Luke\Google Drive\Code\Scouting\Scouting\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\Scouting.exe.config
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.exe
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.pdb
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\Scouting.exe
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\Scouting.pdb
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.csprojResolveAssemblyReference.cache
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.Form1.resources
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.Properties.Resources.resources
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.csproj.GenerateResource.Cache
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.Main_Window.resources

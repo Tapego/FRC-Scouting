@@ -65,4 +65,9 @@ namespace Scouting
         public string[] declines { get; set; }
         public string[] picks { get; set; }
     }
+
+    public class EventRanking
+    {
+        public string[] rankings;
+    }
 }

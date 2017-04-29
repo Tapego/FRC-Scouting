@@ -14,39 +14,23 @@ namespace Scouting
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        static HttpClient client = new HttpClient();
-        static HttpResponseMessage response;
+        public static HttpClient client = new HttpClient();
         [STAThread]
         static void Main()
         {
             client.BaseAddress = new Uri("https://www.thebluealliance.com/api/v2/");
             client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Add("X-TBA-App-Id", "luke:luke:0.1");
-            RunAsync().Wait();
+            //RunAsync().Wait();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
 
-        public static async Task RequestTBA(string type, string data, Form1 form)
-        {
-            client.DefaultRequestHeaders.Accept.Clear();
-            byte[] byteResponse;
-            switch (type)
-            {
-                case "event":
-                    {
-                        response = await client.GetAsync("event/" + data);
-                        byteResponse = await response.Content.ReadAsByteArrayAsync();
-                        string stringResponse = Encoding.UTF8.GetString(byteResponse, 0, byteResponse.Length);
-                        Event frcEvent = JsonConvert.DeserializeObject<Event>(stringResponse);
-                        form.frcEvent = frcEvent;
-                        break;
-                    }
-            }
-        }
 
+        /*
         static async Task RunAsync()
         {
 
@@ -62,7 +46,7 @@ namespace Scouting
             Console.Write(GroundControl.name);
             
 
-        }
+        }*/
 
         /*
         static async Task<Product> GetProductAsync(string path)
