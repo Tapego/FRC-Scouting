@@ -48,22 +48,39 @@ namespace Scouting
 
     public class Match
     {
+        public enum Comp { qm, ef, qf, sf, f}
         public string key { get; set; }
-        public string comp_level { get; set; }
+        public Comp comp_level { get; set; }
         public int set_number { get; set; }
         public int match_number { get; set; }
-        public List<Alliance> alliances { get; set; }
-        public object score_breakdown { get; set; }
+        public Alliances alliances { get; set; }
+        public teamScore score_breakdown { get; set; }
         public string event_key { get; set; }
-        public string[] videos { get; set; }
+        public List<Video> videos { get; set; }
         public string time_string { get; set; }
         public ulong time { get; set; } 
     }
 
+    public class teamScore
+    {
+        public Dictionary<string, string> blue, red;
+    }
+    
+    public class Video
+    {
+        public string type { get; set; }
+        public string key { get; set; }
+    }
+
+    public class Alliances
+    {
+        public Alliance blue, red;
+    }
     public class Alliance
     {
-        public string[] declines { get; set; }
-        public string[] picks { get; set; }
+        public string[] surrogates { get; set; }
+        public int score { get; set; }
+        public string[] teams {get; set; }
     }
 
     public class EventRanking

@@ -33,7 +33,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Year = new System.Windows.Forms.ComboBox();
             this.Matchview_btn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.RankingView_btn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Rankings_lbl = new System.Windows.Forms.Label();
             this.CurrentMatch_lbl = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@
             this.EventCode.Name = "EventCode";
             this.EventCode.Size = new System.Drawing.Size(64, 20);
             this.EventCode.TabIndex = 3;
-            this.EventCode.Text = "sc";
+            this.EventCode.Text = "ausp";
             // 
             // textBox1
             // 
@@ -82,15 +82,17 @@
             this.Matchview_btn.TabIndex = 6;
             this.Matchview_btn.Text = "Match View";
             this.Matchview_btn.UseVisualStyleBackColor = true;
+            this.Matchview_btn.Click += new System.EventHandler(this.Matchview_btn_Click);
             // 
-            // button1
+            // RankingView_btn
             // 
-            this.button1.Location = new System.Drawing.Point(438, 405);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 26);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Match View";
-            this.button1.UseVisualStyleBackColor = true;
+            this.RankingView_btn.Location = new System.Drawing.Point(438, 405);
+            this.RankingView_btn.Name = "RankingView_btn";
+            this.RankingView_btn.Size = new System.Drawing.Size(97, 26);
+            this.RankingView_btn.TabIndex = 7;
+            this.RankingView_btn.Text = "Ranking View";
+            this.RankingView_btn.UseVisualStyleBackColor = true;
+            this.RankingView_btn.Click += new System.EventHandler(this.RankingView_btn_Click);
             // 
             // dataGridView1
             // 
@@ -137,13 +139,14 @@
             this.Controls.Add(this.CurrentMatch_lbl);
             this.Controls.Add(this.Rankings_lbl);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.RankingView_btn);
             this.Controls.Add(this.Matchview_btn);
             this.Controls.Add(this.Year);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.EventCode);
             this.Controls.Add(this.RequestTBA);
             this.Name = "EventView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Event";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -158,7 +161,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox Year;
         private System.Windows.Forms.Button Matchview_btn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button RankingView_btn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label Rankings_lbl;
         private System.Windows.Forms.Label CurrentMatch_lbl;

@@ -59,6 +59,7 @@
             this.Controls.Add(this.TeamScout_btn);
             this.Controls.Add(this.EventScout_btn);
             this.Name = "Main_Window";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main_Window";
             this.ResumeLayout(false);
 
