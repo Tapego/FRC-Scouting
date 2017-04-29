@@ -1,6 +1,6 @@
 ﻿namespace Scouting
 {
-    partial class Form1
+    partial class EventView
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Rankings_lbl = new System.Windows.Forms.Label();
             this.CurrentMatch_lbl = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,11 +118,22 @@
             this.CurrentMatch_lbl.TabIndex = 10;
             this.CurrentMatch_lbl.Text = "Current Match";
             // 
-            // Form1
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(83, 299);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(124, 100);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "I\'m confused";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // EventView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 443);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.CurrentMatch_lbl);
             this.Controls.Add(this.Rankings_lbl);
             this.Controls.Add(this.dataGridView1);
@@ -131,8 +143,8 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.EventCode);
             this.Controls.Add(this.RequestTBA);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "EventView";
+            this.Text = "Event";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -150,6 +162,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label Rankings_lbl;
         private System.Windows.Forms.Label CurrentMatch_lbl;
+        private System.Windows.Forms.Button button2;
     }
 }
 

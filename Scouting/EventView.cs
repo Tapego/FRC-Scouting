@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Scouting
 {
-    public partial class Form1 : Form
+    public partial class EventView : Form
     {
-        public Event frcEvent;
+        public EventView frcEvent;
         public DataTable Rankings;
-        public Form1()
+        public EventView()
         {
             InitializeComponent();
         }
@@ -25,9 +25,9 @@ namespace Scouting
             {
                 await TBAHTTP.RequestTBA(Program.client, TBAHTTP.RequestType.EventRanking, Year.Text + EventCode.Text, this);
             }
-            catch
+            catch (Exception error)
             {
-                
+                MessageBox.Show("Hmmm, something went wrong. Check to see if the code is right for that year. Here's some technical stuff: \n" + error.Message) ;
             }
             dataGridView1.DataSource = Rankings;
         }
@@ -39,6 +39,11 @@ namespace Scouting
                 Year.Items.Add(year);
             }
             Year.SelectedIndex = Year.Items.Count-1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("That's okay, so am I. \nThe second box is for the 'event code', which can be found either on here (https://docs.google.com/spreadsheets/d/1HqsReMjr5uBuyZjqv14t6bQF2n038GfMmWi3B6vFGiA/edit#gid=0) or just by looking at the url of any regional/district (https://www.thebluealliance.com/event/2017ausc) <- ausc. \n \n I'll make it easier later. Later is a long time.");
         }
     }
 }

@@ -51,11 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datatypes.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="EventView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="EventView.Designer.cs">
+      <DependentUpon>EventView.cs</DependentUpon>
     </Compile>
     <Compile Include="Main Window.cs">
       <SubType>Form</SubType>
@@ -66,8 +66,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TBAHTTP.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="EventView.resx">
+      <DependentUpon>EventView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main Window.resx">
       <DependentUpon>Main Window.cs</DependentUpon>

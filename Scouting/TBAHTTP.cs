@@ -13,7 +13,7 @@ namespace Scouting
     public static class TBAHTTP
     {
         public enum RequestType { Event, EventRanking};
-        public static async Task RequestTBA(HttpClient client,RequestType type, string data, Form1 form)
+        public static async Task RequestTBA(HttpClient client,RequestType type, string data, EventView form)
         {
             byte[] byteResponse;
             HttpResponseMessage response = new HttpResponseMessage();
@@ -24,7 +24,7 @@ namespace Scouting
                         response = await client.GetAsync("event/" + data);
                         byteResponse = await response.Content.ReadAsByteArrayAsync();
                         string stringResponse = Encoding.UTF8.GetString(byteResponse, 0, byteResponse.Length);
-                        Event frcEvent = JsonConvert.DeserializeObject<Event>(stringResponse);
+                        EventView frcEvent = JsonConvert.DeserializeObject<EventView>(stringResponse);
                         form.frcEvent = frcEvent;
                         break;
                     }

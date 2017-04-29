@@ -19,7 +19,7 @@ namespace Scouting
 
         private void EventScout_btn_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
+            EventView form = new EventView();
             form.Show();
         }
     }
