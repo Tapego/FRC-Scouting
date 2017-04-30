@@ -13,12 +13,14 @@ namespace Scouting
     public static class TBAHTTP
     {
         public enum RequestType { Event, EventRanking, Matches};
+
         public static async Task RequestTBA(HttpClient client,RequestType type, string data, EventView form)
         {
             byte[] byteResponse;
             HttpResponseMessage response = new HttpResponseMessage();
             switch (type)
             {
+
                 case RequestType.Event:
                     {
                         response = await client.GetAsync("event/" + data);
@@ -28,6 +30,7 @@ namespace Scouting
                         form.frcEvent = frcEvent;
                         break;
                     }
+
                 case RequestType.EventRanking:
                     {
                         DataTable tableResponse = new DataTable();
@@ -36,26 +39,66 @@ namespace Scouting
                         string stringResponse = Encoding.UTF8.GetString(byteResponse, 0, byteResponse.Length);
 
                         string[][] rankings = JsonConvert.DeserializeObject<string[][]>(stringResponse);
+
+                        //go through each string and try to convert to a double. If successful, set column as double.
                         for (int i = 0; i < rankings[0].Length; i++)
                         {
-                            tableResponse.Columns.Add(rankings[0][i]);
+                            double value;
+                            DataColumn column = tableResponse.Columns.Add(rankings[0][i]);
+                            if (double.TryParse(rankings[1][i], out value))
+                            {
+                                //If the first number happens to be a perfect round but others aren't, this will fail. This is faster however and should work in most cases.
+                                if (value == (int)value)
+                                {
+                                    column.DataType = typeof(int);
+                                }
+                                else
+                                {
+                                    column.DataType = typeof(double);
+                                }
+                            }
                         }
                         for (int i = 1; i < rankings.Length; i++)
                         {
                             DataRow row = tableResponse.NewRow();
-                            row.ItemArray = rankings[i];
+                            for (int j = 0; j < rankings[i].Length; j++)
+                            {
+                                if (tableResponse.Columns[j].DataType == typeof(double))
+                                {
+                                    row[j] = Math.Round(double.Parse(rankings[i][j]),2);
+                                }
+                                else if (tableResponse.Columns[j].DataType == typeof(int))
+                                {
+                                    row[j] = Convert.ToInt32(double.Parse(rankings[i][j]));
+                                }
+                                else //it's just a string
+                                {
+                                    Console.Write(rankings[i][j]);
+                                    row[j] = rankings[i][j];
+                                }
+                            }
+                            //row.ItemArray = rankings[i];
                             tableResponse.Rows.Add(row);
                         }
                         form.Rankings = tableResponse;
                         break;
                     }
+
                 case RequestType.Matches:
                     {
                         DataTable viewMatchData = new DataTable();
                         response = await client.GetAsync("event/" + data + "/matches");
                         byteResponse = await response.Content.ReadAsByteArrayAsync();
                         string stringresponse = Encoding.UTF8.GetString(byteResponse, 0, byteResponse.Length);
-                        List<Match> matches = JsonConvert.DeserializeObject<List<Match>>(stringresponse);
+                        List<Match> matches = null;
+                        try
+                        {
+                            matches = JsonConvert.DeserializeObject<List<Match>>(stringresponse);
+                        }
+                        catch
+                        {
+
+                        }
 
                         viewMatchData.Columns.Add("Time", typeof(DateTime));
                         viewMatchData.Columns.Add("Stage", typeof(string));
@@ -96,27 +139,9 @@ namespace Scouting
                             row["Videos"] = match.videos;
                             viewMatchData.Rows.Add(row);
                         }
-                        /*
-                        Type typeMatch = typeof(Match);
-                        var properties = typeMatch.GetProperties();
-                        foreach (var property in properties)
-                        {
-                            tableResponse.Columns.Add(property.Name);
-                        }
-                        foreach(Match match in matches)
-                        {
-                            List<string> props = match.data();
-                            DataRow row = tableResponse.NewRow();
-                            for (int i = 0; i < props.Count; i++)
-                            {
-                                row.ItemArray = props.ToArray();
-                            }
-                            tableResponse.Rows.Add(row);
-                        }
-                        */
 
                         form.Matches = matches;
-                        form.MatchView = viewMatchData;
+                        form.MatchesDataTable = viewMatchData;
                         break;
                     }
             }

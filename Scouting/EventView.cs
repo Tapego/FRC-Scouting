@@ -15,25 +15,27 @@ namespace Scouting
         public EventView frcEvent;
         public DataTable Rankings;
         public List<Match> Matches;
-        public DataTable MatchView;
+        public DataTable MatchesDataTable;
         public EventView()
         {
             InitializeComponent();
-            dataGridView1.DataSourceChanged += GetWinner;
+            MatchesGridView.DataBindingComplete += GetWinner;
+            RankingsGridView.DataBindingComplete += ChangeDecimals;
         }
 
         private async void RequestTBA_click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 await TBAHTTP.RequestTBA(Program.client, TBAHTTP.RequestType.EventRanking, Year.Text + EventCode.Text, this);
                 await TBAHTTP.RequestTBA(Program.client, TBAHTTP.RequestType.Matches, Year.Text + EventCode.Text, this);
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Hmmm, something went wrong. Check to see if the code is right for that year. Here's some technical stuff: \n" + error.Message) ;
-            }
-            dataGridView1.DataSource = Rankings;
+            //}
+            //catch (Exception error)
+            //{
+            //    MessageBox.Show("Hmmm, something went wrong. Check to see if the code is right for that year. Here's some technical stuff: \n" + error.Message) ;
+            //}
+            RankingsGridView.DataSource = Rankings;
+            MatchesGridView.DataSource = MatchesDataTable;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -50,32 +52,47 @@ namespace Scouting
             MessageBox.Show("That's okay, so am I. \nThe second box is for the 'event code', which can be found either on here (https://docs.google.com/spreadsheets/d/1HqsReMjr5uBuyZjqv14t6bQF2n038GfMmWi3B6vFGiA/edit#gid=0) or just by looking at the url of any regional/district (https://www.thebluealliance.com/event/2017ausc) <- ausc. \n \n I'll make it easier later. Later is a long time.");
         }
 
-        private void Matchview_btn_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = MatchView;
-        }
-
-        private void RankingView_btn_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = Rankings;
-        }
-
         private void GetWinner(object sender, EventArgs e)
         {
-            if (dataGridView1.DataSource == MatchView)
-            foreach(DataGridViewRow row in dataGridView1.Rows)
+            DataGridView view = sender as DataGridView;
+            foreach(DataGridViewRow row in view.Rows)
             {
                 int red = Convert.ToInt32(row.Cells["Red Score"].Value);
                 int blue = Convert.ToInt32(row.Cells["Blue Score"].Value);
+                DataGridViewCellStyle style = new DataGridViewCellStyle();
+                style.Font = new Font(view.Font, FontStyle.Bold);
                 if (blue > red)
                 {
-                    row.DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                    for (int i = 1; i <= 3; i++)
+                    {
+                        row.Cells["Blue " + i].Style = style;
+                        row.Cells["Blue " + i].Style.BackColor = Color.LightSkyBlue;
+                    }
                 }
                 else if (red > blue)
                 {
-                    row.DefaultCellStyle.BackColor = Color.LightSalmon;
+                    for (int i = 1; i <= 3; i++)
+                    {
+                        row.Cells["Red " + i].Style = style;
+                        row.Cells["Red " + i].Style.BackColor = Color.LightSalmon;
+                    }
                 }
             }
+        }
+        private void ChangeDecimals(object sender, EventArgs e)
+        {
+            /*DataGridView view = sender as DataGridView;
+            DataTable table = (DataTable)view.DataSource;
+            foreach (DataRow row in table.Rows)
+            {
+                row[3] = double.Parse((string)row["Ranking Score"]).ToString("G2");
+                //row["Ranking Score"].Value = cell;
+            }*/
+        }
+
+        private void RankingsGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Console.WriteLine(Rankings.Columns[e.ColumnIndex].DataType);
         }
     }
 }
