@@ -29,36 +29,5 @@ namespace Scouting
             Application.Run(new Main_Window());
         }
 
-
-        /*
-        static async Task RunAsync()
-        {
-
-            response = await client.GetAsync("team/frc5663");
-            
-            HttpContent content = response.Content;
-            System.IO.Stream stream = await content.ReadAsStreamAsync();
-            byte[] stringContent = await content.ReadAsByteArrayAsync();
-            Encoding encoding = Encoding.UTF8;
-            string responseString = encoding.GetString(stringContent, 0, stringContent.Length);
-            System.IO.BinaryReader br = new System.IO.BinaryReader(stream);
-            Team GroundControl = JsonConvert.DeserializeObject<Team>(responseString);
-            Console.Write(GroundControl.name);
-            
-
-        }*/
-
-        /*
-        static async Task<Product> GetProductAsync(string path)
-        {
-            Product product = null;
-            HttpResponseMessage response = await client.GetAsync(path);
-            if (response.IsSuccessStatusCode)
-            {
-                product = await response.Content.ReadAsStringAsync();
-            }
-            return product;
-        }
-        */
     }
 }

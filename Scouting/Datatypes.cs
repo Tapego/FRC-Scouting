@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,6 +60,51 @@ namespace Scouting
         public List<Video> videos { get; set; }
         public string time_string { get; set; }
         public ulong time { get; set; } 
+
+        static public string CompToString(Comp comp)
+        {
+            switch(comp)
+            {
+                case Comp.ef:
+                    {
+                        return ("Eighth-final");
+                    }
+                case Comp.f:
+                    {
+                        return ("Final");
+                    }
+                case Comp.qf:
+                    {
+                        return ("Quarterfinal");
+                    }
+                case Comp.qm:
+                    {
+                        return ("Qualification");
+                    }
+                case Comp.sf:
+                    {
+                        return ("Semifinal");
+                    }
+            }
+            return null;
+        }
+        public List<string> data()
+        {
+            List<string> list = new List<string>();
+            list.Add(key);
+            list.Add(comp_level.ToString());
+            list.Add(set_number.ToString());
+            list.Add(match_number.ToString());
+            list.Add(alliances.ToString());
+            list.Add(score_breakdown.ToString());
+            list.Add(event_key);
+            list.Add(videos.ToString());
+            list.Add(time_string);
+            System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            dtDateTime = dtDateTime.AddSeconds(time).ToLocalTime();
+            list.Add(dtDateTime.DayOfWeek.ToString() + " "+ dtDateTime.ToLongTimeString());
+            return list;
+        }
     }
 
     public class teamScore
@@ -87,4 +133,6 @@ namespace Scouting
     {
         public string[] rankings;
     }
+
+
 }

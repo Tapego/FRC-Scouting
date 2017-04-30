@@ -51,11 +51,52 @@ namespace Scouting
                     }
                 case RequestType.Matches:
                     {
-                        DataTable tableResponse = new DataTable();
+                        DataTable viewMatchData = new DataTable();
                         response = await client.GetAsync("event/" + data + "/matches");
                         byteResponse = await response.Content.ReadAsByteArrayAsync();
                         string stringresponse = Encoding.UTF8.GetString(byteResponse, 0, byteResponse.Length);
                         List<Match> matches = JsonConvert.DeserializeObject<List<Match>>(stringresponse);
+
+                        viewMatchData.Columns.Add("Time", typeof(DateTime));
+                        viewMatchData.Columns.Add("Stage", typeof(string));
+                        viewMatchData.Columns.Add("Set", typeof(int));
+                        viewMatchData.Columns.Add("Match No.", typeof(int));
+                        for (int i = 1; i <= 3; i++)
+                        {
+                            viewMatchData.Columns.Add("Blue "+ i, typeof(int));
+                        }
+                        for (int i = 1; i <= 3; i++)
+                        {
+                            viewMatchData.Columns.Add("Red " + i, typeof(int));
+                        }
+                        viewMatchData.Columns.Add("Blue Score", typeof(int));
+                        viewMatchData.Columns.Add("Red Score", typeof(int));
+                        viewMatchData.Columns.Add("Videos", typeof(string));
+
+                        foreach(Match match in matches)
+                        {
+                            DataRow row = viewMatchData.NewRow();
+                            DateTime time = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                            time = time.AddSeconds(match.time).ToLocalTime();
+                            row["Time"] = time;
+                            row["Stage"] = Match.CompToString(match.comp_level);
+                            row["Set"] = match.set_number;
+                            row["Match No."] = match.match_number;
+                            for (int i = 1; i <= 3; i++)
+                            {
+                                //remove the start of the number "frc"
+                                row["Blue " + i] = int.Parse(match.alliances.blue.teams[i-1].Remove(0, 3));
+                            }
+                            for (int i = 1; i <= 3; i++)
+                            {
+                                row["Red " + i] = int.Parse(match.alliances.red.teams[i-1].Remove(0,3));
+                            }
+                            row["Blue Score"] = match.alliances.blue.score;
+                            row["Red Score"] = match.alliances.red.score;
+                            row["Videos"] = match.videos;
+                            viewMatchData.Rows.Add(row);
+                        }
+                        /*
                         Type typeMatch = typeof(Match);
                         var properties = typeMatch.GetProperties();
                         foreach (var property in properties)
@@ -64,15 +105,18 @@ namespace Scouting
                         }
                         foreach(Match match in matches)
                         {
-                            var props = match.GetType().GetProperties();
+                            List<string> props = match.data();
                             DataRow row = tableResponse.NewRow();
-                            for(int i = 0; i < props.Length; i++)
+                            for (int i = 0; i < props.Count; i++)
                             {
-                                row.ItemArray[i] = match.GetType().GetProperty(props[i].Name);
+                                row.ItemArray = props.ToArray();
                             }
                             tableResponse.Rows.Add(row);
                         }
-                        form.Matches = tableResponse;
+                        */
+
+                        form.Matches = matches;
+                        form.MatchView = viewMatchData;
                         break;
                     }
             }

@@ -14,10 +14,12 @@ namespace Scouting
     {
         public EventView frcEvent;
         public DataTable Rankings;
-        public DataTable Matches;
+        public List<Match> Matches;
+        public DataTable MatchView;
         public EventView()
         {
             InitializeComponent();
+            dataGridView1.DataSourceChanged += GetWinner;
         }
 
         private async void RequestTBA_click(object sender, EventArgs e)
@@ -50,12 +52,30 @@ namespace Scouting
 
         private void Matchview_btn_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = Matches;
+            dataGridView1.DataSource = MatchView;
         }
 
         private void RankingView_btn_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = Rankings;
+        }
+
+        private void GetWinner(object sender, EventArgs e)
+        {
+            if (dataGridView1.DataSource == MatchView)
+            foreach(DataGridViewRow row in dataGridView1.Rows)
+            {
+                int red = Convert.ToInt32(row.Cells["Red Score"].Value);
+                int blue = Convert.ToInt32(row.Cells["Blue Score"].Value);
+                if (blue > red)
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                }
+                else if (red > blue)
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightSalmon;
+                }
+            }
         }
     }
 }

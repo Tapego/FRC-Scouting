@@ -57,6 +57,7 @@
     <Compile Include="EventView.Designer.cs">
       <DependentUpon>EventView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Functions.cs" />
     <Compile Include="Main Window.cs">
       <SubType>Form</SubType>
     </Compile>
