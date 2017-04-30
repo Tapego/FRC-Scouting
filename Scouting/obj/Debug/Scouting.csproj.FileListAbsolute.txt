@@ -22,3 +22,11 @@ C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scoutin
 C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.csproj.GenerateResource.Cache
 C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.Main_Window.resources
 C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.EventView.resources
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\EntityFramework.dll
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\System.Data.SQLite.dll
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\EntityFramework.xml
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\System.Data.SQLite.xml

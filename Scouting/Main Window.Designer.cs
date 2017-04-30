@@ -34,9 +34,10 @@
             // 
             // EventScout_btn
             // 
-            this.EventScout_btn.Location = new System.Drawing.Point(12, 12);
+            this.EventScout_btn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.EventScout_btn.Location = new System.Drawing.Point(0, 0);
             this.EventScout_btn.Name = "EventScout_btn";
-            this.EventScout_btn.Size = new System.Drawing.Size(101, 28);
+            this.EventScout_btn.Size = new System.Drawing.Size(221, 48);
             this.EventScout_btn.TabIndex = 0;
             this.EventScout_btn.Text = "Event Scouting";
             this.EventScout_btn.UseVisualStyleBackColor = true;
@@ -44,9 +45,10 @@
             // 
             // TeamScout_btn
             // 
-            this.TeamScout_btn.Location = new System.Drawing.Point(12, 57);
+            this.TeamScout_btn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.TeamScout_btn.Location = new System.Drawing.Point(0, 51);
             this.TeamScout_btn.Name = "TeamScout_btn";
-            this.TeamScout_btn.Size = new System.Drawing.Size(101, 28);
+            this.TeamScout_btn.Size = new System.Drawing.Size(221, 54);
             this.TeamScout_btn.TabIndex = 1;
             this.TeamScout_btn.Text = "Team Scouting";
             this.TeamScout_btn.UseVisualStyleBackColor = true;
@@ -55,12 +57,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 546);
+            this.ClientSize = new System.Drawing.Size(221, 105);
             this.Controls.Add(this.TeamScout_btn);
             this.Controls.Add(this.EventScout_btn);
             this.Name = "Main_Window";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main_Window";
+            this.Text = "Main Window";
             this.ResumeLayout(false);
 
         }

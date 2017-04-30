@@ -21,6 +21,27 @@ namespace Scouting
             InitializeComponent();
             MatchesGridView.DataBindingComplete += GetWinner;
             RankingsGridView.DataBindingComplete += ChangeDecimals;
+
+            DataTable scoutCategories = Program.db.GetSheetCategories();
+            DataTable scoutingView = new DataTable();
+
+            foreach(DataRow row in scoutCategories.Rows)
+            {
+                switch(row["type"].ToString())
+                {
+                    case "INTEGER":
+                        {
+                            scoutingView.Columns.Add(row["name"].ToString(), typeof(int));
+                            break;
+                        }
+                    case "TEXT":
+                        {
+                            scoutingView.Columns.Add(row["name"].ToString(), typeof(string));
+                            break;
+                        }
+                }
+            }
+            ScoutingView.DataSource = scoutingView;
         }
 
         private async void RequestTBA_click(object sender, EventArgs e)

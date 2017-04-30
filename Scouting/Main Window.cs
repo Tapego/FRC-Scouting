@@ -15,6 +15,7 @@ namespace Scouting
         public Main_Window()
         {
             InitializeComponent();
+            //Console.WriteLine("Hi: " + this.GetType().Assembly.GetManifestResourceNames());
         }
 
         private void EventScout_btn_Click(object sender, EventArgs e)

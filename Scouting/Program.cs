@@ -15,18 +15,24 @@ namespace Scouting
         /// The main entry point for the application.
         /// </summary>
         public static HttpClient client = new HttpClient();
+        public static Database db = new Database("customscouting");
         [STAThread]
         static void Main()
         {
+
+            db.Open();
+            db.InitializeTables();
+
             client.BaseAddress = new Uri("https://www.thebluealliance.com/api/v2/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Add("X-TBA-App-Id", "luke:luke:0.1");
-            //RunAsync().Wait();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main_Window());
+            db.Close();
         }
 
     }

@@ -39,6 +39,8 @@
             this.RankingsTab = new System.Windows.Forms.TabPage();
             this.MatchesTab = new System.Windows.Forms.TabPage();
             this.MatchesGridView = new System.Windows.Forms.DataGridView();
+            this.ScoutingTab = new System.Windows.Forms.TabPage();
+            this.ScoutingView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.RankingsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -48,6 +50,8 @@
             this.RankingsTab.SuspendLayout();
             this.MatchesTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MatchesGridView)).BeginInit();
+            this.ScoutingTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScoutingView)).BeginInit();
             this.SuspendLayout();
             // 
             // RequestTBA
@@ -131,6 +135,7 @@
             // 
             this.TabView.Controls.Add(this.RankingsTab);
             this.TabView.Controls.Add(this.MatchesTab);
+            this.TabView.Controls.Add(this.ScoutingTab);
             this.TabView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabView.Location = new System.Drawing.Point(0, 0);
             this.TabView.Name = "TabView";
@@ -170,6 +175,26 @@
             this.MatchesGridView.Size = new System.Drawing.Size(764, 411);
             this.MatchesGridView.TabIndex = 9;
             // 
+            // ScoutingTab
+            // 
+            this.ScoutingTab.Controls.Add(this.ScoutingView);
+            this.ScoutingTab.Location = new System.Drawing.Point(4, 22);
+            this.ScoutingTab.Name = "ScoutingTab";
+            this.ScoutingTab.Size = new System.Drawing.Size(770, 417);
+            this.ScoutingTab.TabIndex = 2;
+            this.ScoutingTab.Text = "Scouting";
+            this.ScoutingTab.UseVisualStyleBackColor = true;
+            // 
+            // ScoutingView
+            // 
+            this.ScoutingView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ScoutingView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ScoutingView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScoutingView.Location = new System.Drawing.Point(0, 0);
+            this.ScoutingView.Name = "ScoutingView";
+            this.ScoutingView.Size = new System.Drawing.Size(770, 417);
+            this.ScoutingView.TabIndex = 10;
+            // 
             // EventView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,6 +215,8 @@
             this.RankingsTab.ResumeLayout(false);
             this.MatchesTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MatchesGridView)).EndInit();
+            this.ScoutingTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScoutingView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -205,6 +232,8 @@
         private System.Windows.Forms.TabPage RankingsTab;
         private System.Windows.Forms.TabPage MatchesTab;
         private System.Windows.Forms.DataGridView MatchesGridView;
+        private System.Windows.Forms.TabPage ScoutingTab;
+        private System.Windows.Forms.DataGridView ScoutingView;
     }
 }
 
