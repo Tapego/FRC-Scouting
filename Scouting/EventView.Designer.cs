@@ -35,6 +35,8 @@
             this.RankingsGridView = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.NewEntry_btn = new System.Windows.Forms.Button();
+            this.AddScoutingColumn_btn = new System.Windows.Forms.Button();
             this.TabView = new System.Windows.Forms.TabControl();
             this.RankingsTab = new System.Windows.Forms.TabPage();
             this.MatchesTab = new System.Windows.Forms.TabPage();
@@ -119,6 +121,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.NewEntry_btn);
+            this.splitContainer1.Panel1.Controls.Add(this.AddScoutingColumn_btn);
             this.splitContainer1.Panel1.Controls.Add(this.RequestTBA);
             this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.EventCode);
@@ -130,6 +134,26 @@
             this.splitContainer1.Size = new System.Drawing.Size(955, 443);
             this.splitContainer1.SplitterDistance = 173;
             this.splitContainer1.TabIndex = 12;
+            // 
+            // NewEntry_btn
+            // 
+            this.NewEntry_btn.Location = new System.Drawing.Point(12, 291);
+            this.NewEntry_btn.Name = "NewEntry_btn";
+            this.NewEntry_btn.Size = new System.Drawing.Size(148, 23);
+            this.NewEntry_btn.TabIndex = 13;
+            this.NewEntry_btn.Text = "New Entry";
+            this.NewEntry_btn.UseVisualStyleBackColor = true;
+            this.NewEntry_btn.Click += new System.EventHandler(this.NewEntry_btn_Click);
+            // 
+            // AddScoutingColumn_btn
+            // 
+            this.AddScoutingColumn_btn.Location = new System.Drawing.Point(12, 320);
+            this.AddScoutingColumn_btn.Name = "AddScoutingColumn_btn";
+            this.AddScoutingColumn_btn.Size = new System.Drawing.Size(148, 23);
+            this.AddScoutingColumn_btn.TabIndex = 12;
+            this.AddScoutingColumn_btn.Text = "Add Scouting Column";
+            this.AddScoutingColumn_btn.UseVisualStyleBackColor = true;
+            this.AddScoutingColumn_btn.Click += new System.EventHandler(this.AddScoutingColumn_btn_Click);
             // 
             // TabView
             // 
@@ -187,13 +211,15 @@
             // 
             // ScoutingView
             // 
-            this.ScoutingView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ScoutingView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ScoutingView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.ScoutingView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ScoutingView.Location = new System.Drawing.Point(0, 0);
             this.ScoutingView.Name = "ScoutingView";
             this.ScoutingView.Size = new System.Drawing.Size(770, 417);
             this.ScoutingView.TabIndex = 10;
+            this.ScoutingView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.ScoutingView_CellEndEdit);
+            this.ScoutingView.NewRowNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.ScoutingView_NewRowNeeded);
+            this.ScoutingView.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.ScoutingView_UserDeletingRow);
             // 
             // EventView
             // 
@@ -234,6 +260,8 @@
         private System.Windows.Forms.DataGridView MatchesGridView;
         private System.Windows.Forms.TabPage ScoutingTab;
         private System.Windows.Forms.DataGridView ScoutingView;
+        private System.Windows.Forms.Button AddScoutingColumn_btn;
+        private System.Windows.Forms.Button NewEntry_btn;
     }
 }
 

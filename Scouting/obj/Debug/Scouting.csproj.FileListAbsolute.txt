@@ -30,3 +30,25 @@ C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\System.
 C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\EntityFramework.xml
 C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\System.Data.SQLite.xml
+C:\Users\Luke\Google Drive\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.AddCategory.resources
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\Scouting.exe.config
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\Scouting.exe
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\Scouting.pdb
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\EntityFramework.dll
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\System.Data.SQLite.dll
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\EntityFramework.xml
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\bin\Debug\System.Data.SQLite.xml
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.csprojResolveAssemblyReference.cache
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.AddCategory.resources
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.EventView.resources
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.Main_Window.resources
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.Properties.Resources.resources
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.csproj.GenerateResource.Cache
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.exe
+C:\Users\Luke\Google Drive\Every Project_Thing Ever\Code\Scouting\FRC-Scouting\Scouting\obj\Debug\Scouting.pdb
