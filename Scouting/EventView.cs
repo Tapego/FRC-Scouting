@@ -120,7 +120,7 @@ namespace Scouting
 
         private void RankingsGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Console.WriteLine(Rankings.Columns[e.ColumnIndex].DataType);
+            //Console.WriteLine(Rankings.Columns[e.ColumnIndex].DataType);
         }
 
         private void AddScoutingColumn_btn_Click(object sender, EventArgs e)
